@@ -16,4 +16,4 @@ Route::get('/import-view', 'Controller@importView');
 Route::post('/import','ExcelController@import');
 Route::get('/export','ExcelController@export');
 Route::get('/upload-view','Controller@uploadView');
-Route::post('/send-file','EmailController@send');
+Route::get('/send-file','EmailController@send');
