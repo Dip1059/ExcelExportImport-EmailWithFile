@@ -10,7 +10,7 @@ class EmailController extends Controller
 {
     public function send()
     {
-    	$msg['msg'] = 'YEEEAAAAHHHH!';
+    	$msg['msg1'] = 'YEEEAAAAHHHH!';
     	Mail::send('email',$msg, function($message){
     		$message->to('dipankarsaha1059@gmail.com');
     		$message->subject('File Sending Test');
