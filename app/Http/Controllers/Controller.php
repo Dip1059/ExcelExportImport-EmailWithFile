@@ -8,6 +8,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\User;
 use DB;
+use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\EmailController;
 
 class Controller extends BaseController
 {
@@ -27,5 +29,21 @@ class Controller extends BaseController
     public function uploadView()
     {
         return view('upload');
+    }
+
+    public function exportAndSendEmail()
+    {
+        $done = app(ExcelController::class)->export();
+        if($done) {
+            $done = app(EmailController::class)->send();
+            if($done) {
+                return "done";
+            }else {
+                return false;
+            }
+        }else {
+            return false;
+        }
+        //return "done";
     }
 }

@@ -14,7 +14,7 @@
     <br><br>
     <a href="{{url('/import-view')}}" class="btn btn-info">Import Excel</a>
     <a href="{{url('/export')}}" class="btn btn-success">Export Excel</a>
-    <a href="{{url('/send-file')}}" class="btn btn-danger">Send File to Email</a>
+    <a href="{{url('/send-file')}}" class="btn btn-danger">Send The File to Email</a>
             <br><br><br>
   <table class="table table-bordered">
     <thead>
