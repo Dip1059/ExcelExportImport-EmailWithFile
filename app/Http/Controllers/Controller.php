@@ -31,9 +31,9 @@ class Controller extends BaseController
         return view('upload');
     }
 
-    public function exportAndSendEmail()
+    public function exportAndSendEmail($apid, $apid2)
     {
-        $done = app(ExcelController::class)->export();
+        $done = app(ExcelController::class)->export($apid, $apid2);
         if($done) {
             $done = app(EmailController::class)->send();
             if($done) {

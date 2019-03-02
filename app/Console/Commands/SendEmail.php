@@ -12,7 +12,7 @@ class SendEmail extends Command
      *
      * @var string
      */
-    protected $signature = 'send:mail';
+    protected $signature = 'send:mail {apid=1} {apid2=5}';
 
     /**
      * The console command description.
@@ -38,11 +38,18 @@ class SendEmail extends Command
      */
     public function handle()
     {
-        $done = app(Controller::class)->exportAndSendEmail();
-        if($done) {
-            $this->info($done);
-        }else {
-            $this->info('Not done');
+        /*$this->info($this->argument('apid'));
+        $this->info($this->argument('apid2'));*/
+
+        try {
+            $done = app(Controller::class)->exportAndSendEmail($this->argument('apid'), $this->argument('apid2'));
+            if($done) {
+                $this->info($done);
+            }else {
+                $this->error('Not done');
+            }   
+        }catch(\Exception $e) {
+            dd($e);
         }
     }
 }

@@ -15,7 +15,7 @@ class EmailController extends Controller
     		$message->to('dipankarsaha1059@gmail.com');
     		$message->subject('File Sending Test');
     		$message->from('abc@email.com', 'Mr. X');
-    		$message->attach(base_path().'\\storage\\app\\users.csv');
+    		$message->attach(base_path().'/storage/app/users.csv');
     	});
     	return "done";
     }

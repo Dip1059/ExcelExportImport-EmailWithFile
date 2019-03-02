@@ -13,9 +13,9 @@ class ExcelController extends Controller
     	
     }
 
-    public function export()
+    public function export($apid, $apid2)
     {
-    	Excel::store(new Export, 'users.xlsx');
+    	Excel::store(new Export($apid, $apid2), 'users.csv');
     	return "done";
     }
 }
